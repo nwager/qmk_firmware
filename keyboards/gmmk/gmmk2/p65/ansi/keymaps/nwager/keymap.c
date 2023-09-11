@@ -54,6 +54,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,  _______,                                RESET,                                  _______,  _______,  RGB_RMOD,  RGB_VAD,  RGB_MOD),
 };
 
+void keyboard_post_init_user(void) {
+    // initialize matrix state
+    rgb_matrix_state_update(layer_state);	
+}
+
 uint32_t layer_state_set_user(uint32_t state) {
     rgb_matrix_state_update(state);
     return state;
@@ -69,11 +74,12 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 void rgb_matrix_state_update(uint32_t state) {
     // NOTE: base layer is always on
     if (IS_LAYER_ON_STATE(state, GAME)) {
+	rgb_matrix_sethsv(0, 255, 255);
         rgb_matrix_mode(RGB_MATRIX_CYCLE_OUT_IN);
         rgb_matrix_set_speed(48);
     } else { // base layer
-        rgb_matrix_sethsv(235, 201, 255);
-        rgb_matrix_mode(RGB_MATRIX_BREATHING);
-        rgb_matrix_set_speed(64);
+	rgb_matrix_sethsv(0, 255, 200);
+        rgb_matrix_mode(RGB_MATRIX_CYCLE_ALL);
+        rgb_matrix_set_speed(14);
     }
 }
