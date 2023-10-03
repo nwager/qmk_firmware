@@ -17,7 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include "utils.h"
 
-#define LRGB_VA_STEP 26
+#define LRGB_VA_STEPS 10
+#define LRGB_CONVERT_STEP(x, s) (((int)(x) * 255) / (s))
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -47,14 +48,14 @@ static struct rgb_state PROGMEM LRGB_DEFAULT[L_NUM_] = {
         .on   = true,
         .spd  = 14,
         .s    = 255,
-        .v    = 130,
+        .v    = 7,
         .mode = RGB_MATRIX_CYCLE_ALL,
     },
     [L_GAME] = {
         .on   = true,
         .spd  = 48,
         .s    = 255,
-        .v    = 160,
+        .v    = 7,
         .mode = RGB_MATRIX_CYCLE_OUT_IN,
     },
     [L_FN] = {
@@ -139,10 +140,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 lrgb_reset();
                 goto kc_lrgb_exit;
             case KC_LRGB_VAI:
-                lrgb_state[l].v = clamp(lrgb_state[l].v, 0+LRGB_VA_STEP, 255-LRGB_VA_STEP) + LRGB_VA_STEP;
+                lrgb_state[l].v = clamp(lrgb_state[l].v + 1, 0, LRGB_VA_STEPS);
                 goto kc_lrgb_exit;
             case KC_LRGB_VAD:
-                lrgb_state[l].v = clamp(lrgb_state[l].v, 0+LRGB_VA_STEP, 255-LRGB_VA_STEP) - LRGB_VA_STEP;
+                lrgb_state[l].v = clamp(lrgb_state[l].v - 1, 0, LRGB_VA_STEPS);
                 goto kc_lrgb_exit;
             default:
                 return true;
@@ -159,7 +160,7 @@ static void rgb_matrix_refresh(uint32_t state) {
     uint8_t layer = get_highest_rgb_layer(state);
     struct rgb_state rgbs = lrgb_state[layer];
     if (rgbs.on) {
-        rgb_matrix_sethsv(rgbs.h, rgbs.s, rgbs.on ? rgbs.v : 0);
+        rgb_matrix_sethsv(rgbs.h, rgbs.s, LRGB_CONVERT_STEP(rgbs.v, LRGB_VA_STEPS));
         rgb_matrix_set_speed(rgbs.spd);
         rgb_matrix_mode(rgbs.mode);
         return;
