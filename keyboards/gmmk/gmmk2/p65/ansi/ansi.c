@@ -97,26 +97,26 @@ const aw_led g_aw_leds[DRIVER_LED_TOTAL] = {
     {1, CS4_SW11,  CS5_SW11,  CS6_SW11 },  //  65 Down
     {1, CS4_SW12,  CS5_SW12,  CS6_SW12 },  //  66 Right
 
-    {1, CS13_SW1,  CS14_SW1,  CS15_SW1 },  //  69 LED 1
-    {1, CS13_SW2,  CS14_SW2,  CS15_SW2 },  //  70 LED 2
-    {1, CS13_SW3,  CS14_SW3,  CS15_SW3 },  //  71 LED 3
-    {1, CS13_SW4,  CS14_SW4,  CS15_SW4 },  //  72 LED 4
-    {1, CS13_SW5,  CS14_SW5,  CS15_SW5 },  //  73 LED 5
-    {1, CS13_SW6,  CS14_SW6,  CS15_SW6 },  //  74 LED 6
-    {1, CS13_SW7,  CS14_SW7,  CS15_SW7 },  //  75 LED 7
-    {1, CS13_SW8,  CS14_SW8,  CS15_SW8 },  //  76 LED 8
-    {1, CS13_SW9,  CS14_SW9,  CS15_SW9 },  //  77 LED 9
-    {1, CS13_SW10, CS14_SW10, CS15_SW10},  //  78 LED 10
-    {1, CS16_SW1,  CS17_SW1,  CS18_SW1 },  //  79 LED 11
-    {1, CS16_SW2,  CS17_SW2,  CS18_SW2 },  //  80 LED 12
-    {1, CS16_SW3,  CS17_SW3,  CS18_SW3 },  //  81 LED 13
-    {1, CS16_SW4,  CS17_SW4,  CS18_SW4 },  //  82 LED 14
-    {1, CS16_SW5,  CS17_SW5,  CS18_SW5 },  //  83 LED 15
-    {1, CS16_SW6,  CS17_SW6,  CS18_SW6 },  //  84 LED 16
-    {1, CS16_SW7,  CS17_SW7,  CS18_SW7 },  //  85 LED 17
-    {1, CS16_SW8,  CS17_SW8,  CS18_SW8 },  //  86 LED 18
-    {1, CS16_SW9,  CS17_SW9,  CS18_SW9 },  //  87 LED 19
-    {1, CS16_SW10, CS17_SW10, CS18_SW10}   //  88 LED 20
+    {1, CS13_SW1,  CS14_SW1,  CS15_SW1 },  //  67 LED 1
+    {1, CS13_SW2,  CS14_SW2,  CS15_SW2 },  //  68 LED 2
+    {1, CS13_SW3,  CS14_SW3,  CS15_SW3 },  //  69 LED 3
+    {1, CS13_SW4,  CS14_SW4,  CS15_SW4 },  //  70 LED 4
+    {1, CS13_SW5,  CS14_SW5,  CS15_SW5 },  //  71 LED 5
+    {1, CS13_SW6,  CS14_SW6,  CS15_SW6 },  //  72 LED 6
+    {1, CS13_SW7,  CS14_SW7,  CS15_SW7 },  //  73 LED 7
+    {1, CS13_SW8,  CS14_SW8,  CS15_SW8 },  //  74 LED 8
+    {1, CS13_SW9,  CS14_SW9,  CS15_SW9 },  //  75 LED 9
+    {1, CS13_SW10, CS14_SW10, CS15_SW10},  //  76 LED 10
+    {1, CS16_SW1,  CS17_SW1,  CS18_SW1 },  //  77 LED 11
+    {1, CS16_SW2,  CS17_SW2,  CS18_SW2 },  //  78 LED 12
+    {1, CS16_SW3,  CS17_SW3,  CS18_SW3 },  //  79 LED 13
+    {1, CS16_SW4,  CS17_SW4,  CS18_SW4 },  //  80 LED 14
+    {1, CS16_SW5,  CS17_SW5,  CS18_SW5 },  //  81 LED 15
+    {1, CS16_SW6,  CS17_SW6,  CS18_SW6 },  //  82 LED 16
+    {1, CS16_SW7,  CS17_SW7,  CS18_SW7 },  //  83 LED 17
+    {1, CS16_SW8,  CS17_SW8,  CS18_SW8 },  //  84 LED 18
+    {1, CS16_SW9,  CS17_SW9,  CS18_SW9 },  //  85 LED 19
+    {1, CS16_SW10, CS17_SW10, CS18_SW10}   //  86 LED 20
 };
 
 #undef ___
