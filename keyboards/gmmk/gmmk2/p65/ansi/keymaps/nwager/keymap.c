@@ -117,7 +117,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     // light up L_FN key when active
     if (IS_LAYER_ON_STATE(layer_state, L_FN)) {
         RGB_MATRIX_INDICATOR_SET_COLOR(FN_LED, 255, 255, 255);
@@ -126,6 +126,7 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (host_keyboard_led_state().caps_lock) {
         RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LED, 255, 255, 255);
     }
+    return true;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
