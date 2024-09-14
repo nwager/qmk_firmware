@@ -66,7 +66,7 @@ static struct rgb_state PROGMEM LRGB_DEFAULT[L_NUM_] = {
 static struct rgb_state lrgb_state[L_NUM_];
 
 // Update matrix for the current state.
-static void rgb_matrix_refresh(uint32_t state);
+static void rgb_matrix_refresh(layer_state_t state);
 // Get highest non-NONE active layer.
 static uint8_t get_highest_rgb_layer(uint32_t state);
 // Reset RGB settings to default.
@@ -112,7 +112,7 @@ static void lrgb_reset(void) {
         lrgb_state[i] = LRGB_DEFAULT[i];
 }
 
-uint32_t layer_state_set_user(uint32_t state) {
+layer_state_t layer_state_set_user(layer_state_t state) {
     rgb_matrix_refresh(state);
     return state;
 }
@@ -156,7 +156,7 @@ kc_lrgb_exit:
     return true;
 }
 
-static void rgb_matrix_refresh(uint32_t state) {
+static void rgb_matrix_refresh(layer_state_t state) {
     uint8_t layer = get_highest_rgb_layer(state);
     struct rgb_state rgbs = lrgb_state[layer];
     if (rgbs.on) {
