@@ -48,14 +48,14 @@ static struct rgb_state PROGMEM LRGB_DEFAULT[L_NUM_] = {
         .on   = true,
         .spd  = 14,
         .s    = 255,
-        .v    = 7,
+        .v    = LRGB_VA_STEPS,
         .mode = RGB_MATRIX_CYCLE_ALL,
     },
     [L_GAME] = {
         .on   = true,
         .spd  = 48,
         .s    = 255,
-        .v    = 7,
+        .v    = LRGB_VA_STEPS,
         .mode = RGB_MATRIX_CYCLE_OUT_IN,
     },
     [L_FN] = {
